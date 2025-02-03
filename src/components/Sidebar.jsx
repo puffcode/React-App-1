@@ -26,6 +26,13 @@ export default function Sidebar() {
   // its own item.
   return (
     <div>
+      <ul>
+        {menuItems
+          .filter((item) => item.includes(filter))
+          .map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+      </ul>
       <input
         type="text"
         id="newMenuItemValue"
@@ -42,13 +49,6 @@ export default function Sidebar() {
         onChange={(event) => setFilter(event.target.value)}
         placeholder="Filter by..."
       ></input>
-      <ul>
-        {menuItems
-          .filter((item) => item.includes(filter))
-          .map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-      </ul>
     </div>
   );
 }
