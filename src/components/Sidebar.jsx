@@ -43,9 +43,11 @@ export default function Sidebar() {
         placeholder="Filter by..."
       ></input>
       <ul>
-        {menuItems.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
+        {menuItems
+          .filter((item) => item.includes(filter))
+          .map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
       </ul>
     </div>
   );
